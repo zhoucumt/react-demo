@@ -4,6 +4,7 @@ import './App.css';
 // import RefThree from './views/RefPages/createRef';
 import RefFour from './views/RefPages/forwardRef';
 import Home from './views/Home';
+import List from './views/List';
 
 function App() {
   const ref = React.createRef();
@@ -13,6 +14,7 @@ function App() {
       {/* <RefThree /> */}
       <RefFour ref={ref}>Click me!</RefFour>
       <Home name={'Tom'} />
+      <List />
       {/* <RefFour>aaa</RefFour> */}
     </div>
   );

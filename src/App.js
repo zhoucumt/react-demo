@@ -5,6 +5,7 @@ import './App.css';
 import RefFour from './views/RefPages/forwardRef';
 import Home from './views/Home';
 import List from './views/List';
+import Temperature from './views/Temperature';
 
 function App() {
   const ref = React.createRef();
@@ -15,6 +16,7 @@ function App() {
       <RefFour ref={ref}>Click me!</RefFour>
       <Home name={'Tom'} />
       <List />
+      <Temperature></Temperature>
       {/* <RefFour>aaa</RefFour> */}
     </div>
   );

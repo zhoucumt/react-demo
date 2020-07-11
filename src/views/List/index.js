@@ -20,7 +20,7 @@ class List extends Component {
       count: state.count + 1
     }));
   }
-  render() { 
+  render() {
     return (
       <div>
         <div>{this.state.count}</div>

@@ -11,7 +11,7 @@ class ContextPage extends Component {
     return (
       <div>
         <h3>ContextPage</h3>
-        <ThemeContext.Provider value="blue">
+        <ThemeContext.Provider value={'blue'}>
           <Toolbar />
         </ThemeContext.Provider>
       </div>

@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 // import RefOne from './views/RefPages/refs';
 // import RefThree from './views/RefPages/createRef';
-import RefFour from './views/RefPages/forwardRef';
-import Home from './views/Home';
-import List from './views/List';
-import Temperature from './views/Temperature';
-import ContextPage from './views/ContextPage';
+// import RefFour from './views/RefPages/forwardRef';
+// import Home from './views/Home';
+// import List from './views/List';
+// import Temperature from './views/Temperature';
+// import ContextPage from './views/ContextPage';
+import HooksPage from './views/HooksPage';
 
 function App() {
   const ref = React.createRef();
@@ -19,7 +20,8 @@ function App() {
       <List />
       <Temperature></Temperature> */}
       {/* <RefFour>aaa</RefFour> */}
-      <ContextPage />
+      {/* <ContextPage /> */}
+      <HooksPage />
     </div>
   );
 }

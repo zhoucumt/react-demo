@@ -7,7 +7,8 @@ import './App.css';
 // import List from './views/List';
 // import Temperature from './views/Temperature';
 // import ContextPage from './views/ContextPage';
-import HooksPage from './views/HooksPage';
+// import HooksPage from './views/HooksPage';
+import CallbackPage from './views/CallbackPage';
 
 function App() {
   const ref = React.createRef();
@@ -21,7 +22,8 @@ function App() {
       <Temperature></Temperature> */}
       {/* <RefFour>aaa</RefFour> */}
       {/* <ContextPage /> */}
-      <HooksPage />
+      {/* <HooksPage /> */}
+      <CallbackPage />
     </div>
   );
 }

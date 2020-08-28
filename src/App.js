@@ -7,7 +7,8 @@ import './App.css';
 // import List from './views/List';
 // import Temperature from './views/Temperature';
 // import ContextPage from './views/ContextPage';
-import HooksPage from './views/HooksPage';
+// import HooksPage from './views/HooksPage';
+import TodoApp from "./views/TodoApp";
 // import CallbackPage from './views/CallbackPage';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
       <Temperature></Temperature> */}
       {/* <RefFour>aaa</RefFour> */}
       {/* <ContextPage /> */}
-      <HooksPage />
+      {/* <HooksPage /> */}
+      <TodoApp />
       {/* <CallbackPage /> */}
     </div>
   );

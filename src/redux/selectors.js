@@ -16,6 +16,7 @@ export const getTodos = store =>
   getTodoList(store).map(id => getTodoById(store, id));
 
 export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
+  console.log('正在获取todos');
   const allTodos = getTodos(store);
   switch (visibilityFilter) {
     case VISIBILITY_FILTERS.COMPLETED:

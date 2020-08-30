@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Todo from "./Todo";
 // import { getTodos } from "../redux/selectors";
 import { getTodosByVisibilityFilter } from "../../redux/selectors";
@@ -25,7 +25,9 @@ const TodoList = ({ todos }) => (
 // };
 
 const mapStateToProps = state => {
+  console.log('state: ', state);
   const { visibilityFilter } = state;
+  console.log('开始获取todos');
   const todos = getTodosByVisibilityFilter(state, visibilityFilter);
   return { todos };
   //   const allTodos = getTodos(state);

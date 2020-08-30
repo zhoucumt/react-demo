@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
+  console.log('触发了增加按钮');
   switch (action.type) {
     case ADD_TODO: {
       const { id, content } = action.payload;

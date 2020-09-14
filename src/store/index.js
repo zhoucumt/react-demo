@@ -1,6 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from "redux";
-import createSagaMiddleware from 'redux-saga';
-import rootSaga from './sagas';
+import {createStore, combineReducers} from "redux";
 
 // 定义修改规则
 export const countReducer = (state = 0, {type, payload = 1}) => {
@@ -14,13 +12,6 @@ export const countReducer = (state = 0, {type, payload = 1}) => {
   }
 };
 
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(
-  combineReducers({count: countReducer}),
-  applyMiddleware(sagaMiddleware)
-);
-
-sagaMiddleware.run(rootSaga);
+const store = createStore(combineReducers({count: countReducer}));
 
 export default store;

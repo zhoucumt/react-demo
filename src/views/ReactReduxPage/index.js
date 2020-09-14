@@ -2,38 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-@connect(
-  // mapStateToProps 把state放到props上一份
-  // ({count}) => ({count}),
-  state => {
-    return {count: state.count};
-  },
+// mapStateToProps用法1
+const mapStateToProps = ({count}) => ({count});
 
-  // mapDispatchToProps object|function 把dispatch放到props上一份
-  {
-    add: () => ({type: "ADD"}),
-    minus: () => ({type: "MINUS"})
-  }
-
-  // dispatch => {
-  //   let creators = {
-  //     add: () => ({type: "ADD", payload: 100}),
-  //     minus: () => ({type: "MINUS", payload: 100})
-  //   };
-
-  //   creators = bindActionCreators(creators, dispatch);
-
-  //   return {dispatch, ...creators};
-  // }
-  // (stateProps, dispatchProps, ownProps) => {
-  //   return {
-  //     // ...stateProps,
-  //     // ...dispatchProps,
-  //     // ...ownProps,
-  //     omg: "omg"
-  //   };
-  // }
-)
 class ReactReduxPage extends Component {
   render() {
     console.log("props", this.props); //sy-log
@@ -51,5 +22,5 @@ class ReactReduxPage extends Component {
     );
   }
 }
-export default ReactReduxPage;
-// export default connect()(ReactReduxPage);
+// export default ReactReduxPage;
+export default connect(mapStateToProps)(ReactReduxPage);

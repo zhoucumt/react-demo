@@ -3,6 +3,8 @@ import ReactReduxPage from "./views/ReactReduxPage";
 
 export default function App(props) {
   const [state, setState] = useState(1);
+  const element = <h1>hello</h1>;
+  console.log(element);
   return (
     <div>
       <button onClick={() => setState(state + 1)}>add : {state}</button>

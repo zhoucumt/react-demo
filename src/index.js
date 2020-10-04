@@ -5,9 +5,26 @@ import App from "./App";
 import store from "./store/";
 import {Provider} from "react-redux";
 
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById("root")
+// );
+
+class Welcome extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  render() {
+    return <h1>hello {this.props.name}</h1>
+  }
+}
+
+// const ele = <Welcome name={'Tom'} />
+const ele = new Welcome('Tom2')
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  ele,
   document.getElementById("root")
 );

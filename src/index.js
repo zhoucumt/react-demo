@@ -5,10 +5,11 @@ import App from "./App";
 import store from "./store/";
 import {Provider} from "react-redux";
 // import MouseTracker from './views/RenderPropsPage';
-import CountTimer from './views/CountTimer';
+// import CountTimer from './views/CountTimer';
+import StateDemo from './views/State';
 
 ReactDOM.render(
-  <CountTimer />,
+  <StateDemo />,
   document.getElementById("root")
 );
 

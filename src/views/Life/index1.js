@@ -9,38 +9,38 @@ import React from "react";
 // 定义子组件
 class LifeCycle extends React.Component {
   constructor(props) {
-    console.log("进入constructor");
+    console.log("子组件进入constructor");
     super(props);
     // state 可以在 constructor 里初始化
     this.state = { text: "子组件的文本" };
   }
   // 初始化渲染时调用
   componentWillMount() {
-    console.log("componentWillMount方法执行", this.state);
+    console.log("子组件componentWillMount方法执行", this.state);
   }
   // 初始化渲染时调用
   componentDidMount() {
-    console.log("componentDidMount方法执行");
+    console.log("子组件componentDidMount方法执行");
   }
   // 父组件修改组件的props时会调用
   // 只在更新阶段调用
   // nextProps：接收到的新的props
   componentWillReceiveProps(nextProps) {
-    console.log("componentWillReceiveProps方法执行", nextProps, this.props);
+    console.log("子组件componentWillReceiveProps方法执行", nextProps, this.props);
   }
   // 组件更新时调用
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate方法执行");
+    console.log("子组件shouldComponentUpdate方法执行", nextProps, nextState);
     return true;
   }
 
   // 组件更新时调用
   componentWillUpdate(nextProps, nextState) {
-    console.log("componentWillUpdate方法执行");
+    console.log("子组件componentWillUpdate方法执行", nextProps, nextState);
   }
   // 组件更新后调用
   componentDidUpdate(nextProps, nextState) {
-    console.log("componentDidUpdate方法执行");
+    console.log("子组件componentDidUpdate方法执行", nextProps, nextState);
   }
   // 组件卸载时调用
   componentWillUnmount() {
@@ -53,7 +53,7 @@ class LifeCycle extends React.Component {
     });
   };
   render() {
-    console.log("render方法执行");
+    console.log("子组件render方法执行");
     return (
       <div className="container">
         <button onClick={this.changeText} className="changeText">

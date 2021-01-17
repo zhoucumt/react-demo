@@ -11,16 +11,24 @@ class LifeCycle extends React.Component {
     // state 可以在 constructor 里初始化
     this.state = { text: "子组件的文本" };
   }
-  // 初始化/更新时调用
+  // 1.getDerivedStateFromProps不是componentWillMount的替代品
+  // 2.设计的初衷是替代掉componentWillReceiveProps
+  // 3.有且仅有一个用途：用props来派生/更新state
+  // 4.挂载和更新都会被调用
+  // 5.是一个静态方法，因此内部无法访问this
+  // 6.接收两个参数props和state：分别代表当前组件接收到的来自父组件的props和当前组件自身的state
+  // 7.需要返回一个对象或者null,并且不会对state进行覆盖式的更新
+  // 8.react16.4中，任何因素触发的组件更新流程(this.setState和forceUpdate)都会触发getDerivedStateFromProps
+  // react16.3中，只有父组件的更新会触发getDerivedStateFromProps
   static getDerivedStateFromProps(props, state) {
-    console.log("-----------------getDerivedStateFromProps方法执行");
+    console.log("-----------------getDerivedStateFromProps方法执行", props, state);
     return {
       fatherText: props.text
     }
   }
   // 初始化渲染时调用
   componentDidMount() {
-    console.log("-----------------componentDidMount方法执行");
+    console.log("-----------------componentDidMount方法执行", this.state);
   }
   // 组件更新时调用
   shouldComponentUpdate(prevProps, nextState) {
@@ -28,14 +36,16 @@ class LifeCycle extends React.Component {
     return true;
   }
 
-  // 组件更新时调用
+  // 1.组件更新时调用，执行时机是render方法之后，真实DOM更新之前
+  // 2.返回值会作为第3个参数给到componentDidUpdate
+  // 3.可以同时获取到更新之前的真实DOM和更新前后的state和props
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log("-----------------getSnapshotBeforeUpdate方法执行");
+    console.log("-----------------getSnapshotBeforeUpdate方法执行", prevProps, prevState);
     return "haha";
   }
   // 组件更新后调用
   componentDidUpdate(preProps, preState, valueFromSnapshot) {
-    console.log("-----------------componentDidUpdate方法执行");
+    console.log("-----------------componentDidUpdate方法执行", preProps, preState);
     console.log("-----------------从 getSnapshotBeforeUpdate 获取到的值是", valueFromSnapshot);
   }
   // 组件卸载时调用

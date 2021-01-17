@@ -67,14 +67,57 @@ class LifeCycle extends React.Component {
 }
 // 定义 LifeCycle 组件的父组件
 export default class LifeCycleContainer extends React.Component {
+  constructor(props) {
+    console.log("===========父组件进入constructor");
+    super(props);
+    // state 可以在 constructor 里初始化
+    this.state = {
+      text: "父组件的文本",
+      hideChild: false,
+      // 新增的只与父组件有关的 state
+      ownText: "仅仅和父组件有关的文本"
+    };
+  }
+  // 初始化渲染时调用
+  componentWillMount() {
+    console.log("===========父组件componentWillMount方法执行", this.state);
+  }
+  // 初始化渲染时调用
+  componentDidMount() {
+    console.log("===========父组件componentDidMount方法执行");
+  }
+  // 父组件修改组件的props时会调用
+  // 只在更新阶段调用
+  // nextProps：接收到的新的props
+  componentWillReceiveProps(nextProps) {
+    console.log("===========父组件componentWillReceiveProps方法执行", nextProps, this.props);
+  }
+  // 组件更新时调用
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("===========父组件shouldComponentUpdate方法执行", nextProps, nextState);
+    return true;
+  }
+
+  // 组件更新时调用
+  componentWillUpdate(nextProps, nextState) {
+    console.log("===========父组件componentWillUpdate方法执行", nextProps, nextState);
+  }
+  // 组件更新后调用
+  componentDidUpdate(nextProps, nextState) {
+    console.log("===========父组件componentDidUpdate方法执行", nextProps, nextState);
+  }
+  // 组件卸载时调用
+  componentWillUnmount() {
+    console.log("===========父组件的componentWillUnmount方法执行");
+  }
 
   // state 也可以像这样用属性声明的形式初始化
-  state = {
-    text: "父组件的文本",
-    hideChild: false,
-    // 新增的只与父组件有关的 state
-    ownText: "仅仅和父组件有关的文本",
-  };
+  // state = {
+  //   text: "父组件的文本",
+  //   hideChild: false,
+  //   // 新增的只与父组件有关的 state
+  //   ownText: "仅仅和父组件有关的文本",
+  // };
   // 点击按钮，修改父组件文本的方法
   changeText = () => {
     this.setState({
@@ -95,6 +138,7 @@ export default class LifeCycleContainer extends React.Component {
     });
   };
   render() {
+    console.log('========父组件render方法')
     return (
       <div className="fatherContainer">
         {/* 新的button按钮 */}
@@ -112,3 +156,7 @@ export default class LifeCycleContainer extends React.Component {
     );
   }
 }
+
+// 父constructor => 父componentWillMount => 父render => 
+// 子constructor => 子componentWillMount => 子render => 子componentDidMount
+// => 父componentDidMount

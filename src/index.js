@@ -7,7 +7,7 @@ import {Provider} from "react-redux";
 // import MouseTracker from './views/RenderPropsPage';
 // import CountTimer from './views/CountTimer';
 import StateDemo from './views/State';
-import LifeCycleContainer from './views/Life/index1.js';
+import LifeCycleContainer from './views/Life/index2.js';
 
 ReactDOM.render(
   <LifeCycleContainer />,

@@ -12,4 +12,8 @@ const immutableState = fromJS ({
   __altered: false
 }
  */
-console.log(immutableState);
+// console.log(immutableState);
+
+// toJS用法
+const jsObj = immutableState.toJS ();
+console.log(jsObj);

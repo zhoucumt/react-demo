@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from "redux";
+import {createStore, combineReducers, applyMiddleware} from "redux";
+import thunk from 'redux-thunk';
 
 // 定义修改规则
 export const countReducer = (state = 0, {type, payload = 1}) => {
@@ -12,6 +13,7 @@ export const countReducer = (state = 0, {type, payload = 1}) => {
   }
 };
 
-const store = createStore(combineReducers({count: countReducer}));
+const store = createStore(combineReducers({count: countReducer}), applyMiddleware(thunk));
+console.log('store: ', store);
 
 export default store;

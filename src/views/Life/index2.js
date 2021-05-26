@@ -20,10 +20,10 @@ class LifeCycle extends React.Component {
   // 7.需要返回一个对象或者null,并且不会对state进行覆盖式的更新
   // 8.react16.4中，任何因素触发的组件更新流程(this.setState和forceUpdate)都会触发getDerivedStateFromProps
   // react16.3中，只有父组件的更新会触发getDerivedStateFromProps
-  static getDerivedStateFromProps(props, state) {
-    console.log("-----------------getDerivedStateFromProps方法执行", props, state);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log("-----------------getDerivedStateFromProps方法执行", nextProps, prevState);
     return {
-      fatherText: props.text
+      fatherText: nextProps.text
     }
   }
   // 初始化渲染时调用
@@ -31,8 +31,8 @@ class LifeCycle extends React.Component {
     console.log("-----------------componentDidMount方法执行", this.state);
   }
   // 组件更新时调用
-  shouldComponentUpdate(prevProps, nextState) {
-    console.log("-----------------shouldComponentUpdate方法执行");
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("-----------------shouldComponentUpdate方法执行", nextProps, nextState);
     return true;
   }
 

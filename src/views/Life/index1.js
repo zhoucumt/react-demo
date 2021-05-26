@@ -39,8 +39,8 @@ class LifeCycle extends React.Component {
     console.log("子组件componentWillUpdate方法执行", nextProps, nextState);
   }
   // 组件更新后调用
-  componentDidUpdate(nextProps, nextState) {
-    console.log("子组件componentDidUpdate方法执行", nextProps, nextState);
+  componentDidUpdate(prevProps, prevState) {
+    console.log("子组件componentDidUpdate方法执行", prevProps, prevState);
   }
   // 组件卸载时调用
   componentWillUnmount() {
@@ -103,8 +103,8 @@ export default class LifeCycleContainer extends React.Component {
     console.log("===========父组件componentWillUpdate方法执行", nextProps, nextState);
   }
   // 组件更新后调用
-  componentDidUpdate(nextProps, nextState) {
-    console.log("===========父组件componentDidUpdate方法执行", nextProps, nextState);
+  componentDidUpdate(prevProps, prevState) {
+    console.log("===========父组件componentDidUpdate方法执行", prevProps, prevState);
   }
   // 组件卸载时调用
   componentWillUnmount() {
